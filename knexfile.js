@@ -43,9 +43,13 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      connectionString: process.env.HEROKU_POSTGRES_PUCE_URL,
+      ssl: {
+        rejectUnauthorized: false,
+      }
+      // database: 'my_db',
+      // user:     'username',
+      // password: 'password'
     },
     pool: {
       min: 2,
